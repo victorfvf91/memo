@@ -1,0 +1,25 @@
+{
+  "name": "contextual-bookmarking-app",
+  "version": "1.0.0",
+  "description": "Intelligent bookmarking platform that automatically understands, categorises, and synthesises saved content",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "extension:build": "cd extension && npm run build",
+    "worker:start": "cd server && node workers/index.js",
+    "worker:content": "cd server && npm run worker:content",
+    "worker:summary": "cd server && npm run worker:summary",
+    "dev:full": "concurrently \"npm run server:dev\" \"npm run client:dev\" \"npm run worker:start\""
+  },
+  "keywords": ["bookmarking", "knowledge-management", "ai", "pwa"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 

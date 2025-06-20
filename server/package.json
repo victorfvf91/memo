@@ -1,0 +1,41 @@
+{
+  "name": "contextual-bookmarking-server",
+  "version": "1.0.0",
+  "description": "Backend API for contextual bookmarking app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest",
+    "db:migrate": "knex migrate:latest",
+    "db:seed": "knex seed:run",
+    "worker:content": "node workers/contentProcessor.js",
+    "worker:summary": "node workers/clusterSummaryWorker.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3",
+    "knex": "^3.0.1",
+    "redis": "^4.6.10",
+    "openai": "^4.20.1",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "pdf-parse": "^1.1.1",
+    "multer": "^1.4.5-lts.1",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "compression": "^1.7.4",
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  }
+} 
