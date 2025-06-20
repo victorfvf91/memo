@@ -1,3 +1,4 @@
+require("dotenv").config({ path: require("path").join(__dirname, "..", ".env") });
 const Redis = require('redis');
 const { v4: uuidv4 } = require('uuid');
 

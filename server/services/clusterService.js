@@ -1,13 +1,20 @@
+require("dotenv").config({ path: require("path").join(__dirname, "..", ".env") });
 const OpenAI = require('openai');
 const { db } = require('../config/database');
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 class ClusterService {
   constructor() {
-    this.openai = openai;
+    this.openai = null;
+  }
+
+  // Initialize OpenAI client lazily
+  getOpenAI() {
+    if (!this.openai) {
+      this.openai = new OpenAI({
+        apiKey: process.env.OPENAI_API_KEY,
+      });
+    }
+    return this.openai;
   }
 
   // Create or update cluster
@@ -158,7 +165,7 @@ Respond in JSON format:
 }
 `;
 
-      const response = await this.openai.chat.completions.create({
+      const response = await this.getOpenAI().chat.completions.create({
         model: "gpt-4",
         messages: [{ role: "user", content: prompt }],
         temperature: 0.3,

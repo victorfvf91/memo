@@ -1,3 +1,4 @@
+require("dotenv").config({ path: require("path").join(__dirname, "..", ".env") });
 const queueService = require('../services/queueService');
 const clusterService = require('../services/clusterService');
 const { db } = require('../config/database');

@@ -1,3 +1,4 @@
+require("dotenv").config({ path: require("path").join(__dirname, "..", ".env") });
 const ContentProcessorWorker = require('./contentProcessor');
 const ClusterSummaryWorker = require('./clusterSummaryWorker');
 
